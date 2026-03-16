@@ -10,6 +10,53 @@ default_dirs:
     - global: ~/.claude/commands/
 
 library:
-  skills: []
-  agents: []
+  skills:
+    # --- Honley Hotel Skills ---
+    - name: booking-scraper
+      description: Booking.com extranet calendar scraper — availability, rates, restrictions via Playwright
+      source: /Users/agentalk/Sterling/lib/skills/booking-scraper/SKILL.md
+
+    - name: freetobook-sync
+      description: FreeToBook iCal feed syncer — pulls bookings into honley.db every 4 hours
+      source: /Users/agentalk/Sterling/lib/skills/freetobook-sync/SKILL.md
+
+    - name: freetobook-importer
+      description: One-shot CSV importer for FreeToBook booking exports into honley.db
+      source: /Users/agentalk/Sterling/lib/skills/freetobook-importer/SKILL.md
+
+    - name: vapi-agent
+      description: Vapi voice agent CLI — create, update, test Honley Hotel AI phone assistant
+      source: /Users/agentalk/Sterling/lib/skills/vapi-agent/SKILL.md
+
+    # --- Infrastructure Skills ---
+    - name: xeneon-dashboard
+      description: Xeneon Edge Dashboard — aiohttp + WebSocket hotel ops dashboard server
+      source: /Users/agentalk/Sterling/lib/servers/xeneon-dashboard/SKILL.md
+
+    - name: sterling-agent-server
+      description: FastAPI + Strands multi-agent job server with GUI/terminal/Stripe tools
+      source: /Users/agentalk/Sterling/lib/servers/sterling-agent/SKILL.md
+
+  agents:
+    # --- Honley Hotel Agents ---
+    - name: reputation-agent
+      description: Daily reputation monitor — scrapes Booking.com, TripAdvisor, Google for reviews, classifies and alerts
+      source: /Users/agentalk/Sterling/lib/agents/reputation-agent/AGENT.md
+
+    - name: sterling-watcher
+      description: iMessage watcher daemon — listens for Steven's messages, responds with full Sterling persona
+      source: /Users/agentalk/Sterling/lib/agents/sterling-watcher/AGENT.md
+
+    - name: daily-briefing
+      description: Morning executive briefing — check-ins, occupancy, reviews, campaign stats via Telegram
+      source: /Users/agentalk/Sterling/lib/agents/daily-briefing/AGENT.md
+
+    - name: blink-monitor
+      description: Blink security camera poller — snapshots, motion events, dashboard integration
+      source: /Users/agentalk/Sterling/lib/agents/blink-monitor/AGENT.md
+
+    - name: booking-monitor
+      description: Email booking parser — extracts guest details from confirmation emails via Claude
+      source: /Users/agentalk/Sterling/lib/agents/booking-monitor/AGENT.md
+
   prompts: []
